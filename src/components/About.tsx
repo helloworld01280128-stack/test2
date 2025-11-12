@@ -28,7 +28,7 @@ export const About = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About us <span className="text-primary neon-text">Me</span>
+            About <span className="text-primary neon-text">Me</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto neon-glow" />
         </div>
