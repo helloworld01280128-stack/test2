@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 5 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 5 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 5 80% 55%;
+    --input: 0 0% 15%;
+    --ring: 5 80% 55%;
+
+    --radius: 0.5rem;
+
+    /* Neon Red Glow Colors */
+    --neon-red: 5 80% 55%;
+    --neon-red-glow: 5 100% 50%;
+    --neon-shadow: 5 100% 50%;
+    
+    /* Gradient */
+    --gradient-radial: radial-gradient(circle, hsl(5 80% 55% / 0.3), transparent);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--neon-red) / 0.5),
+                0 0 40px hsl(var(--neon-red) / 0.3),
+                0 0 60px hsl(var(--neon-red) / 0.2);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--neon-red) / 0.8),
+                 0 0 20px hsl(var(--neon-red) / 0.6),
+                 0 0 30px hsl(var(--neon-red) / 0.4);
+  }
+
+  .glow-pulse {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 40px hsl(var(--neon-red) / 0.4),
+                  0 0 80px hsl(var(--neon-red) / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 60px hsl(var(--neon-red) / 0.6),
+                  0 0 100px hsl(var(--neon-red) / 0.4);
+    }
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--neon-red));
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: hsl(var(--neon-red)) }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px hsl(var(--neon-red) / 0.3);
+  }
+}
